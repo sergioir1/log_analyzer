@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 pyspark = "*"
 pydantic = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [dev-packages]
 ipykernel = "*"

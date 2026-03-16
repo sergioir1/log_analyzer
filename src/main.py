@@ -3,6 +3,7 @@ from pathlib import Path
 
 from src.models.response_schema import ResponseSchema
 from src.core.logger import logger
+from src.log_analyzer.runner_pipeline import RunnerPipeline
 from src.utils.date_time import DateTime
 from src.utils.error_handler import LogAnalyzerError
 
@@ -67,8 +68,6 @@ def main():
     date_time.start()
     exit_code = 0
     args = parse_args()
-
-    from src.log_analyzer.runner_pipeline import RunnerPipeline
 
     logger.debug("Input files:", args.input)
     logger.debug("Output file:", args.output)

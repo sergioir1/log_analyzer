@@ -46,8 +46,8 @@ class StreamingLoader(object):
                 response_type=response_type
             )
 
-        except (ValueError, IndexError):
-            logger.warning(f"Parser error: {e} | line: {line}")
+        except (ValueError, IndexError) as err:
+            logger.warning(f"Parser error: {err} | line: {line}")
             return None
 
 
