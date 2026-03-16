@@ -3,13 +3,6 @@ from pathlib import Path
 
 from src.models.response_schema import ResponseSchema
 from src.core.logger import logger
-
-
-import argparse
-from pathlib import Path
-
-from src.models.response_schema import ResponseSchema
-from src.core.logger import logger
 from src.utils.date_time import DateTime
 from src.utils.error_handler import LogAnalyzerError
 

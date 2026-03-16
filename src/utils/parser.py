@@ -46,7 +46,7 @@ class StreamingLoader(object):
             )
 
         except (ValueError, IndexError):
-            # TODO: Revisar hacer con este except
+            logger.warning(f"Parser error: {e} | line: {line}")
             return None
 
 
