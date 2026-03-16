@@ -40,9 +40,17 @@ def parse_args():
     parser.add_argument("--eps", action="store_true", help="Events per second")
     parser.add_argument("--bytes", action="store_true", help="Total bytes exchanged")
 
+    # Variable to configure if use spark to process the operations or not
+    parser.add_argument(
+        "--use_spark",
+        action="store_true",
+        help="Use Spark to process the operations"
+    )
+
     return parser.parse_args()
 
 def validate_operations(args):
+    logger.info("Validating input operations defined by the user")
     selected_ops = [op for op in SUPPORTED_OPERATIONS if getattr(args, op)]
 
     if not selected_ops:
@@ -81,9 +89,7 @@ def main():
 
         logger.info(f"Operations to execute: {("; ").join(operations)}")
 
-        # aquí más adelante llamaremos al analyzer
-        response = RunnerPipeline.run_2(args.input, operations, date_time)
-        # analyze_logs(...)
+        response = RunnerPipeline.run(args.input, operations, date_time, args.use_spark)
 
     except LogAnalyzerError as lger:
         date_time.finish()

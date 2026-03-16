@@ -13,4 +13,3 @@ def logger_config():
 
 logger_config()
 logger = logging.getLogger(__name__)
-#logger.basicConfig(level=logging.INFO)
