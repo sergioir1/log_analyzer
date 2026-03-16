@@ -1,3 +1,4 @@
+import gzip
 from typing import Iterator, List, Union
 from pathlib import Path
 from pyspark.sql import SparkSession, DataFrame
@@ -54,8 +55,13 @@ class StreamingLoader(object):
         """
         Stream parse a log file yielding LogEntry objects.
         """
+        # Allow log.gz files
+        if file_path.suffix == ".gz":
+            open_func = lambda p: gzip.open(p, "rt", encoding="utf-8", errors="replace")
+        else:
+            open_func = lambda p: open(p, "r", encoding="utf-8", errors="replace")
 
-        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
+        with open_func(file_path) as f:
             for line in f:
                 entry = self.parse_line(line)
                 if entry:

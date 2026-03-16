@@ -17,7 +17,6 @@ The tool is designed with **extensibility, fault tolerance, and scalability** in
 * Streaming log parser (memory efficient)
 * Multiple input files
 * JSON output
-* Modular architecture
 * Optional Spark support for large datasets
 * Docker support
 
@@ -102,21 +101,23 @@ log-analyzer \
   --eps
 ```
 
+
+
 ---
 
 # CLI Arguments
 
 ### Required
 
-| Argument   | Description                   |
-| ---------- | ----------------------------- |
-| `--input`  | Path to one or more log files |
-| `--output` | Output JSON file              |
+| Argument   | Description                                                                |
+| ---------- |----------------------------------------------------------------------------|
+| `--input`  | Path to one or more log files (the .log or .log.gz extensions are accepted |
+| `--output` | Output JSON file                                                           |
 
 Example:
 
 ```
---input file1.log file2.log
+--input file1.log file2.log.gz
 ```
 
 ---
