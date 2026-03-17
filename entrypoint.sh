@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-python -m src.main "$@"
+exec python -m src.main "$@"

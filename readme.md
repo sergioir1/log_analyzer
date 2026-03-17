@@ -25,6 +25,7 @@ The tool is designed with **extensibility, fault tolerance, and scalability** in
 # Requirements
 
 * Python >= 3.11
+* Java JDK >= 11 (17 recommended) — required only if using `--use_spark`
 
 ---
 
@@ -76,6 +77,19 @@ Or install as a package:
 
 ```
 pip install .
+```
+
+### Java setup (only if using `--use_spark`)
+
+It is recommended to verify that:
+
+* `JAVA_HOME` points to your JDK installation directory
+* Your `PATH` includes `%JAVA_HOME%\\bin` (Windows)
+
+Quick checks:
+
+```
+java -version
 ```
 
 ---
