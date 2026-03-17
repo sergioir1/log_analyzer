@@ -131,7 +131,8 @@ log-analyzer \
 Example:
 
 ```
---input file1.log file2.log.gz
+--input file1.log file2.log.gz \
+--output folder\path\result.txt
 ```
 
 ---
